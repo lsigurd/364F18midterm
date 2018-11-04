@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2> Actors </h2>
+
+<ul>
+{% for t in all_actors %}
+<li>{{ t }} </li><br>
+{% endfor %}
+</ul>
+
+
+{% if not all_actors %}
+There are no saved actors to show.
+{% endif %}
+
+{% endblock %}

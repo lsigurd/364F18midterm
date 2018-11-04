@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2> Directors </h2>
+
+<ul>
+{% for t in all_directors %}
+<li>{{ t }} </li><br>
+{% endfor %}
+</ul>
+
+
+{% if not all_directors %}
+There are no saved directors to show.
+{% endif %}
+
+{% endblock %}
