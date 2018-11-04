@@ -93,9 +93,6 @@ class RatingForm(FlaskForm):
     submit = SubmitField("Submit")
 
 def get_or_create_director(director_name):
-    # Query the director table and filter using movie_name
-    # If director exists, return the director object
-    # Else add a new director to the Director table
     director_one = Director.query.filter_by(full_name = director_name).first()
     if director_one:
         return director_one
@@ -108,11 +105,6 @@ def get_or_create_director(director_name):
 
 
 def get_or_create_movie(movie_title, director, rating):
-    # Query the movie table using movie_title
-    # If movie exists, return the movie object
-    # Else add a new movie to the movie table.
-    # NOTE : You will need director_id because that is the foreign key in the movie table.
-    # So if you are adding a new movie, you will have to make a call to get_or_create_director function using director_name
     movie_query = Movie.query.filter_by(name = movie_title).first()
     if movie_query:
         return movie_query
@@ -125,11 +117,6 @@ def get_or_create_movie(movie_title, director, rating):
         return movie_one
 
 def get_or_create_actor(actor, movie):
-    # Query the actor table using actor
-    # If actor exists, return the actor object
-    # Else add a new actor to the actor table.
-    # NOTE : You will need movie_id because that is the foreign key in the actor table.
-    # So if you are adding a new actor, you will have to make a call to get_or_create_movie function using movie_title
     actor_query = Actor.query.filter_by(actor_name = actor).first()
     if actor_query:
         return actor_query
